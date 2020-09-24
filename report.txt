@@ -1,0 +1,15 @@
+CS32 Project 4 Report
+
+StreetMap:
+
+If the StreetMap loads a map data file with N lines, then load runs in O(N) time. 
+
+If the streetmap holds a map with  N geo-coordinates, and each geo-coordinate is associated with S street segments on average, getSegmentsThatStartWith() is O(S + 1) - not related to N because of the hash-table and linearlly related to S. 
+
+PointToPointRouter:
+
+generatePointToPointRoute() was implemented with the A* algorithm. This used two main data structures: a "closed list" ExpandableHashMap (mapping geocoords to one another) which would store geocoords that would ultimately make up the full route and an "open list" set<pair<double,pair<GeoCoord,GeoCoord>>> (where the double is the "f-value" heuristic and the pair holds the current geocoord and the parent geocoord). This open list holds all the possible next moves for the route, and is organized automatically by the STL set class to have the lowest f-value first.
+
+DeliveryOptimizer:
+
+If there are N deliveries to be made, optimizeDeliveryOrder runs in O(N) time because it was not implemented to optimize. It merely computes the relevant distances to each point and returns them.
